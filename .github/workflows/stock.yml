@@ -11,7 +11,7 @@ jobs:
 stock-job:
 runs-on: ubuntu-latest
 
-```
+
 steps:
   - name: Checkout
     uses: actions/checkout@v4
@@ -21,4 +21,4 @@ steps:
       curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage \
       -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
       -d text="AI选股系统运行成功"
-```
+
