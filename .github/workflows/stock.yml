@@ -1,0 +1,24 @@
+name: AI Stock System
+
+on:
+schedule:
+- cron: '35 6 * * 1-5'
+- cron: '35 1 * * 1-5'
+- cron: '10 7 * * 1-5'
+workflow_dispatch:
+
+jobs:
+stock-job:
+runs-on: ubuntu-latest
+
+```
+steps:
+  - name: Checkout
+    uses: actions/checkout@v4
+
+  - name: Send Telegram Message
+    run: |
+      curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage \
+      -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
+      -d text="AI选股系统运行成功"
+```
